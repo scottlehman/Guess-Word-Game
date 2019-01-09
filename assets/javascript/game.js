@@ -8,7 +8,7 @@ var newGame = function () {
 var generateGame = function () {
 
     // Words Array
-    var words = ["jupiter", "blackhole", "constellation", "satellite", "galaxy", "astronaut", "comet"]
+    var words = ["jupiter", "blackhole", "constellation", "sattelite", "galaxy", "astronaut", "comet"]
     // holds the word that is randomly generated
     var chosenWord = words[Math.floor(Math.random() * words.length)];
     //Holds the letters in chosenWord and splits it into an array
@@ -34,6 +34,9 @@ var generateGame = function () {
     document.onkeyup = function (event) {
         
         var userGuess = event.key;
+        var audio1 = new Audio('assets/apollo11liftoff.mp3');
+        var audio2 = new Audio('assets/apollo13prob.mp3');
+        
 
         if (letters.indexOf(userGuess) > -1) {
 
@@ -56,16 +59,14 @@ var generateGame = function () {
             wins++;
             document.getElementById('wins').innerHTML = 'wins: ' + wins;
             document.getElementById('my-4').innerHTML = 'Congratulations You Win! You guessed ' + letters.join('');
-            // alert('Congratulations You Win!');
-            var audio1 = new Audio('assets/apollo11liftoff.mp3')
+            
             audio1.play();
             newGame();
         }
 
         if (guessesLeft === 0) {
             document.getElementById("my-4").innerHTML = 'Sorry you have lost, the word was ' + letters.join('');
-            // alert('Sorry you have lost');
-            var audio2 = new Audio('assets/apollo13prob.mp3')
+            
             audio2.play();
             newGame();
         }
