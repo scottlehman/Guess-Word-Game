@@ -9,7 +9,7 @@ var newGame = function () {
 var generateGame = function () {
 
     // Words Array
-    var words = ["jupiter", "blackhole", "constellation", "sattelite", "galaxy", "astronaut", "comet"]
+    var words = ["jupiter", "blackhole", "constellation", "satellite", "galaxy", "astronaut", "comet"]
     // holds the word that is randomly generated
     var chosenWord = words[Math.floor(Math.random() * words.length)];
     //Holds the letters in chosenWord and splits it into an array
