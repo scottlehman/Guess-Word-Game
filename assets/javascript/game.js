@@ -1,5 +1,6 @@
 var wins = 0;
-
+var audio1 = new Audio('assets/apollo11liftoff.mp3');
+var audio2 = new Audio('assets/apollo13prob.mp3');
 
 var newGame = function () {
     generateGame();
@@ -34,10 +35,8 @@ var generateGame = function () {
     document.onkeyup = function (event) {
 
         var userGuess = event.key;
-        var audio1 = new Audio('assets/apollo11liftoff.mp3');
-        var audio2 = new Audio('assets/apollo13prob.mp3');
 
-        if (currentWord.includes(userGuess)) {
+        if (currentWord.includes(userGuess) || wrongGuess.includes(userGuess)) {
             return;
         }
 
@@ -54,7 +53,7 @@ var generateGame = function () {
             guessesLeft--;
             wrongGuess.push(userGuess);
             document.getElementById('attemptsLeft').innerHTML = guessesLeft;
-            document.getElementById('guessedLetters').innerHTML = wrongGuess;
+            document.getElementById('guessedLetters').innerHTML = wrongGuess + ' ';
 
         }
 
